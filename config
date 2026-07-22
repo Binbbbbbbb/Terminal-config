@@ -1,0 +1,61 @@
+# ============================================
+# Ghostty Terminal - Complete Configuration
+# ============================================
+# File: ~/.config/ghostty/config
+# View options: ghostty +show-config --default --docs
+
+# --- Typography ---
+font-size = 12
+font-thicken = true
+adjust-cell-height = 2
+
+# --- Theme and Colors ---
+# Catppuccin with automatic light/dark switching
+theme = Gruber Darker
+
+# --- Window and Appearance ---
+window-decoration = false
+window-padding-x = 14
+window-padding-y = 12
+background-opacity = 0.97
+background-blur-radius = 32
+
+# --- Cursor ---
+cursor-style = block
+cursor-style-blink = true
+
+# --- Mouse ---
+mouse-hide-while-typing = true
+copy-on-select = clipboard
+
+# --- Quick Terminal (Quake-style dropdown) ---
+quick-terminal-position = top
+quick-terminal-size = 40%,95%
+quick-terminal-screen = mouse
+quick-terminal-autohide = true
+quick-terminal-animation-duration = 0.15
+
+
+# --- Security ---
+clipboard-paste-protection = true
+clipboard-paste-bracketed-safe = true
+
+# --- Shell Integration ---
+shell-integration = none
+confirm-close-surface = false
+
+# --- Keybindings ---
+# Tabs
+keybind = ctrl+w=close_surface
+
+# Font
+keybind = ctrl+plus=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+zero=reset_font_size
+
+# Quick terminal
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
+
+# --- Performance ---
+# Generous scrollback (25MB)
+scrollback-limit = 25000000
