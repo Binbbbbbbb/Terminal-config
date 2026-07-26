@@ -5,9 +5,12 @@
 # View options: ghostty +show-config --default --docs
 
 # --- Typography ---
-font-size = 12
+font-family = Iosevka
+font-size = 13
 font-thicken = true
 adjust-cell-height = 2
+font-feature = -liga
+font-feature = -calt
 
 # --- Theme and Colors ---
 # Catppuccin with automatic light/dark switching
@@ -17,8 +20,9 @@ theme = Gruber Darker
 window-decoration = false
 window-padding-x = 14
 window-padding-y = 12
-background-opacity = 0.97
-background-blur-radius = 32
+background-opacity = 1.0
+background-blur-radius = 10
+background = #181818
 
 # --- Cursor ---
 cursor-style = block
