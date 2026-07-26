@@ -1,6 +1,9 @@
 # Created by newuser for 5.9
 
-# 历史记录配置
+# 环境配置
+export PATH="$HOME/.local/bin:$PATH"
+
+# zsh历史记录配置
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -15,7 +18,6 @@ export XMODIFIERS=@im=fcitx
 
 # nvm延迟加载
 export NVM_DIR="$HOME/.nvm"
-
 nvm() {
     unset -f nvm
 
@@ -34,7 +36,7 @@ else
     compinit -C
 fi
 
-# 终端插件 补全高亮
+# 终端插件 命令历史补全&高亮
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -46,19 +48,19 @@ alias ten='~/.local/bin/ttrans en'
 alias TT='hlp trans'
 alias EE='hlp expl'
 
-
 # JetBrains
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"
 if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then
     . "${___MY_VMOPTIONS_SHELL_FILE}"
 fi
 
-
 # Starship个性化
 eval "$(starship init zsh)"
-
 
 # fastfetch
 if [[ -o interactive ]]; then
     fastfetch
 fi
+
+export PATH=$PATH:/home/bbinn/.spicetify
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
