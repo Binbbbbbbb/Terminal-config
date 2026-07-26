@@ -1,0 +1,64 @@
+#!/bin/bash
+# 文件位置: ~/.local/bin/ttrans
+
+mode="$1"
+shift
+
+# 1. 优先使用参数
+text="$*"
+
+# 2. 没参数就读取剪贴板
+if [ -z "$text" ]; then
+  text=$(wl-paste 2>/dev/null)
+fi
+
+# 3. 还是空就退出
+if [ -z "$text" ]; then
+  echo "没有输入内容（参数和剪贴板都为空）"
+  exit 1
+fi
+
+# 4. 清理换行、多余空格
+text=$(echo "$text" | tr '\n' ' ' | sed 's/  */ /g')
+
+# 5. 翻译函数（失败自动重试）
+translate() {
+  local result
+
+  result=$(trans -e google "$1" "$text")
+
+  if [ -z "$result" ]; then
+    sleep 2
+    result=$(trans -e google "$1" "$text")
+  fi
+
+  if [ -z "$result" ]; then
+    echo "翻译失败，请检查网络或翻译服务"
+    exit 1
+  fi
+
+  echo "$result"
+}
+
+# 6. 根据目标语言选择方向
+case "$mode" in
+
+zh)
+  # 英文 -> 中文
+  translate "en:zh"
+  ;;
+
+en)
+  # 中文 -> 英文
+  translate "zh:en"
+  ;;
+
+*)
+  echo "不支持的语言: $mode"
+  echo "用法:"
+  echo "  tzh hello"
+  echo "  ten 你好"
+  exit 1
+  ;;
+
+esac
