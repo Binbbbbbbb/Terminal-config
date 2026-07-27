@@ -1,76 +1,70 @@
-#!/bin/bash
-DEFAULT_ENGINE="google"
+# Created by newuser for 5.9
 
-mode="$1"
-shift
+# 环境配置
+export PATH="$HOME/.local/bin:$PATH"
 
-# 1. 判断是否指定翻译引擎
-case "$1" in
-apertium | aspell | auto | google | yandex | bing | hunspell | spell)
-  engine="$1"
-  shift
-  ;;
-*)
-  engine="$DEFAULT_ENGINE"
-  ;;
-esac
+# zsh历史记录配置
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 
-# 2. 优先使用参数
-text="$*"
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
 
-# 2. 没参数就读取剪贴板
-if [ -z "$text" ]; then
-  text=$(wl-paste 2>/dev/null)
-fi
+# 输入法环境变量
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
-# 3. 还是空就退出
-if [ -z "$text" ]; then
-  echo "没有输入内容（参数和剪贴板都为空）"
-  exit 1
-fi
+# nvm延迟加载
+export NVM_DIR="$HOME/.nvm"
+nvm() {
+    unset -f nvm
 
-# 4. 清理换行、多余空格
-text=$(echo "$text" | tr '\n' ' ' | sed 's/  */ /g')
+    [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
-# 5. 翻译函数（失败自动重试）
-translate() {
-  local result
-  local trans_mode="$1"
-
-  result=$(trans -e "$engine" "$trans_mode" "$text")
-
-  if [ -z "$result" ]; then
-    sleep 2
-    result=$(trans -e "$engine" "$trans_mode" "$text")
-  fi
-
-  if [ -z "$result" ]; then
-    echo "翻译失败，请检查网络或翻译服务"
-    exit 1
-  fi
-
-  echo "$result"
+    nvm "$@"
 }
 
-# 6. 根据目标语言选择方向
-case "$mode" in
+# 补全
+autoload -Uz compinit
 
-zh)
-  # 英文 -> 中文
-  translate "en:zh"
-  ;;
+# 补全使用缓存，避免每次重新扫描
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+    compinit
+else
+    compinit -C
+fi
 
-en)
-  # 中文 -> 英文
-  translate "zh:en"
-  ;;
+# 终端插件 补全高亮
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-*)
-  echo "不支持的语言: $mode"
-  echo "用法:"
-  echo "  tzh hello"
-  echo "  ten 你好"
-  exit 1
-  ;;
+# 终端翻译快捷命令
+alias tzh='~/.local/bin/ttrans zh'
+alias ten='~/.local/bin/ttrans en'
 
-esac
+# --help 连通deepseek翻译 | TT 这种形式
+alias TT='hlp trans'
+alias EE='hlp expl'
+
+# nvim别名
+alias nv='nvim'
+
+# JetBrains
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"
+if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then
+    . "${___MY_VMOPTIONS_SHELL_FILE}"
+fi
+
+# Starship个性化
+eval "$(starship init zsh)"
+
+# fastfetch
+if [[ -o interactive ]]; then
+    fastfetch
+fi
+
+# spotify的插件spetify
+export PATH=$PATH:/home/bbinn/.spicetify
+
