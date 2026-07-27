@@ -1,10 +1,21 @@
 #!/bin/bash
-# 文件位置: ~/.local/bin/ttrans
+DEFAULT_ENGINE="google"
 
 mode="$1"
 shift
 
-# 1. 优先使用参数
+# 1. 判断是否指定翻译引擎
+case "$1" in
+apertium | aspell | auto | google | yandex | bing | hunspell | spell)
+  engine="$1"
+  shift
+  ;;
+*)
+  engine="$DEFAULT_ENGINE"
+  ;;
+esac
+
+# 2. 优先使用参数
 text="$*"
 
 # 2. 没参数就读取剪贴板
@@ -24,12 +35,13 @@ text=$(echo "$text" | tr '\n' ' ' | sed 's/  */ /g')
 # 5. 翻译函数（失败自动重试）
 translate() {
   local result
+  local trans_mode="$1"
 
-  result=$(trans -e google "$1" "$text")
+  result=$(trans -e "$engine" "$trans_mode" "$text")
 
   if [ -z "$result" ]; then
     sleep 2
-    result=$(trans -e google "$1" "$text")
+    result=$(trans -e "$engine" "$trans_mode" "$text")
   fi
 
   if [ -z "$result" ]; then
