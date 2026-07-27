@@ -36,7 +36,7 @@ else
     compinit -C
 fi
 
-# 终端插件 命令历史补全&高亮
+# 终端插件 补全高亮
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -47,6 +47,9 @@ alias ten='~/.local/bin/ttrans en'
 # --help 连通deepseek翻译 | TT 这种形式
 alias TT='hlp trans'
 alias EE='hlp expl'
+
+# nvim别名
+alias nv='nvim'
 
 # JetBrains
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"
@@ -62,5 +65,6 @@ if [[ -o interactive ]]; then
     fastfetch
 fi
 
+# spotify的插件spetify
 export PATH=$PATH:/home/bbinn/.spicetify
-___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+
