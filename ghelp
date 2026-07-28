@@ -1,0 +1,38 @@
+#!/bin/bash
+#! ~/.local/bin/ghelp
+
+GREEN=$'\033[38;2;66;220;0m'
+YELLOW=$'\033[38;2;255;219;0m'
+BLUE=$'\033[38;2;145;166;202m'
+PURPLE=$'\033[38;2;159;148;201m'
+RESET=$'\033[0m'
+
+cat <<EOF
+┌─────────────────────────────────────────────────┐
+│                 Ghostty Hotkeys                 │
+│  SPLIT:                                         │
+│   ├─ ${GREEN}ctrl${RESET} + ${BLUE}shift${RESET} + ↑    new_split:${PURPLE}up${RESET}           │
+│   ├─ ...                                        │
+│   ├─ ${GREEN}ctrl${RESET} + ${YELLOW}alt${RESET}   + ↑    goto_split:${PURPLE}up${RESET}          │
+│   ├─ ...                                        │
+│   ├─ ${GREEN}ctrl${RESET} + ↑            resize_split:${PURPLE}up${RESET},${PURPLE}10${RESET}     │
+│   ├─ ...                                        │
+│   ├─ ${GREEN}ctrl${RESET} + enter        toggle_split_zoom      │
+│   └─ ${GREEN}ctrl${RESET} + w            close_surface          │
+│                                                 │
+│  TAB:                                           │
+│   ├─ ${GREEN}ctrl${RESET} + ${BLUE}shift${RESET} + t    new_tab                │
+│   ├─ ${GREEN}ctrl${RESET} + ${BLUE}shift${RESET} + w    close_tab:${PURPLE}this${RESET}         │
+│   ├─ ${GREEN}ctrl${RESET} + ←            goto_tab:${PURPLE}previous${RESET}      │
+│   └─ ${GREEN}ctrl${RESET} + →            goto_tab:${PURPLE}next${RESET}          │
+│                                                 │
+│  FONT:                                          │
+│   ├─ ${GREEN}ctrl${RESET} + =            increase_font_size:${PURPLE}1${RESET}   │
+│   ├─ ${GREEN}ctrl${RESET} + -            decrease_font_size:${PURPLE}1${RESET}   │
+│   └─ ${GREEN}ctrl${RESET} + 0            reset_font_size        │
+│                                                 │
+│  MORE:                                          │
+│   └─ ghostty +list-keybinds                     │
+│                                                 │
+└─────────────────────────────────────────────────┘
+EOF
