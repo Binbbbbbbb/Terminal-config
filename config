@@ -8,7 +8,6 @@
 font-family = Iosevka
 font-size = 13
 font-thicken = true
-adjust-cell-height = 2
 font-feature = -liga
 font-feature = -calt
 
@@ -39,7 +38,6 @@ quick-terminal-screen = mouse
 quick-terminal-autohide = true
 quick-terminal-animation-duration = 0.15
 
-
 # --- Security ---
 clipboard-paste-protection = true
 clipboard-paste-bracketed-safe = true
@@ -49,16 +47,58 @@ shell-integration = none
 confirm-close-surface = false
 
 # --- Keybindings ---
+# Split
+keybind = ctrl+shift+arrow_down=new_split:down
+keybind = ctrl+shift+arrow_left=new_split:left
+keybind = ctrl+shift+arrow_right=new_split:right
+keybind = ctrl+shift+arrow_up=new_split:up
+keybind = ctrl+enter=toggle_split_zoom
+keybind = ctrl+arrow_down=resize_split:down,10
+keybind = ctrl+arrow_left=resize_split:left,10
+keybind = ctrl+arrow_right=resize_split:right,10
+keybind = ctrl+arrow_up=resize_split:up,10
+
 # Tabs
 keybind = ctrl+w=close_surface
 
 # Font
-keybind = ctrl+plus=increase_font_size:1
-keybind = ctrl+minus=decrease_font_size:1
 keybind = ctrl+zero=reset_font_size
 
 # Quick terminal
 keybind = global:ctrl+grave_accent=toggle_quick_terminal
+
+# Unbind
+keybind = super+ctrl+shift+arrow_down=unbind
+keybind = super+ctrl+shift+arrow_left=unbind
+keybind = super+ctrl+shift+arrow_right=unbind
+keybind = super+ctrl+shift+arrow_up=unbind
+keybind = super+ctrl+shift+j=unbind
+keybind = super+ctrl+[=unbind
+keybind = super+ctrl+]=unbind
+
+keybind = ctrl+shift+tab=unbind
+keybind = ctrl+shift+enter=unbind
+keybind = ctrl+shift+page_down=unbind
+keybind = ctrl+shift+page_up=unbind
+keybind = ctrl+shift+e=unbind
+keybind = ctrl+shift+o=unbind
+keybind = ctrl+shift+q=unbind
+keybind = ctrl+shift+n=unbind
+
+keybind = alt+digit_1=unbind
+keybind = alt+digit_2=unbind
+keybind = alt+digit_3=unbind
+keybind = alt+digit_4=unbind
+keybind = alt+digit_5=unbind
+keybind = alt+digit_6=unbind
+keybind = alt+digit_7=unbind
+keybind = alt+digit_8=unbind
+keybind = alt+digit_9=unbind
+keybind = alt+f4=unbind
+
+keybind = ctrl+tab=unbind
+keybind = ctrl+page_down=unbind
+keybind = ctrl+page_up=unbind
 
 # --- Performance ---
 # Generous scrollback (25MB)
