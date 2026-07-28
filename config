@@ -53,10 +53,6 @@ keybind = ctrl+shift+arrow_left=new_split:left
 keybind = ctrl+shift+arrow_right=new_split:right
 keybind = ctrl+shift+arrow_up=new_split:up
 keybind = ctrl+enter=toggle_split_zoom
-keybind = ctrl+arrow_down=resize_split:down,10
-keybind = ctrl+arrow_left=resize_split:left,10
-keybind = ctrl+arrow_right=resize_split:right,10
-keybind = ctrl+arrow_up=resize_split:up,10
 
 # Tabs
 keybind = ctrl+w=close_surface
