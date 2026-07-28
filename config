@@ -84,6 +84,15 @@ keybind = ctrl+shift+e=unbind
 keybind = ctrl+shift+o=unbind
 keybind = ctrl+shift+q=unbind
 keybind = ctrl+shift+n=unbind
+keybind = ctrl+shift+j=unbind
+
+keybind = ctrl+page_down=unbind
+keybind = ctrl+insert=unbind
+keybind = ctrl+page_up=unbind
+keybind = ctrl+tab=unbind
+keybind = ctrl++=unbind
+
+keybind = shift+insert=unbind
 
 keybind = alt+digit_1=unbind
 keybind = alt+digit_2=unbind
@@ -95,10 +104,6 @@ keybind = alt+digit_7=unbind
 keybind = alt+digit_8=unbind
 keybind = alt+digit_9=unbind
 keybind = alt+f4=unbind
-
-keybind = ctrl+tab=unbind
-keybind = ctrl+page_down=unbind
-keybind = ctrl+page_up=unbind
 
 # --- Performance ---
 # Generous scrollback (25MB)
