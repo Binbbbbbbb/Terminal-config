@@ -15,10 +15,8 @@ cat <<EOF
 │   ├─ ...                                        │
 │   ├─ ${GREEN}ctrl${RESET} + ${YELLOW}alt${RESET}   + ↑    goto_split:${PURPLE}up${RESET}          │
 │   ├─ ...                                        │
-│   ├─ ${GREEN}ctrl${RESET} + ↑            resize_split:${PURPLE}up${RESET},${PURPLE}10${RESET}     │
-│   ├─ ...                                        │
 │   ├─ ${GREEN}ctrl${RESET} + enter        toggle_split_zoom      │
-│   └─ ${GREEN}ctrl${RESET} + w            close_surface          │
+│   └─ ${GREEN}alt ${RESET} + w            close_surface          │
 │                                                 │
 │  TAB:                                           │
 │   ├─ ${GREEN}ctrl${RESET} + ${BLUE}shift${RESET} + t    new_tab                │
