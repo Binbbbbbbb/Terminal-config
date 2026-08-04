@@ -51,13 +51,8 @@ alias EE='hlp expl'
 # nvim别名
 alias nv='nvim'
 
-# JetBrains
-___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"
-if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then
-    . "${___MY_VMOPTIONS_SHELL_FILE}"
-fi
 
-# Starship个性化
+# Starship终端美化
 eval "$(starship init zsh)"
 
 # fastfetch
