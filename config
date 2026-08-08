@@ -5,7 +5,7 @@
 # View options: ghostty +show-config --default --docs
 
 # --- Typography ---
-font-family = Iosevka
+font-family = "IosevkaTerm NF"
 font-size = 14
 font-thicken = true
 adjust-cell-height = 3
@@ -18,10 +18,10 @@ theme = Gruber Darker
 
 # --- Window and Appearance ---
 window-decoration = false
-window-padding-x = 5
-window-padding-y = 3
+window-padding-x = 0
+window-padding-y = 0
 background-opacity = 1.0
-background-blur-radius = 10
+background-blur-radius = 30
 background = #181818
 
 # --- Cursor ---
@@ -34,9 +34,9 @@ copy-on-select = clipboard
 
 # --- Quick Terminal (Quake-style dropdown) ---
 quick-terminal-position = top
-quick-terminal-size = 40%,95%
+quick-terminal-size = 50%,98%
 quick-terminal-screen = mouse
-quick-terminal-autohide = true
+quick-terminal-autohide = false
 quick-terminal-animation-duration = 0.15
 
 # --- Security ---
