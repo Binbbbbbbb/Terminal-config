@@ -1,0 +1,142 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "padding": {
+      "top": 2
+    }
+  },
+  "display": {
+    "separator": " "
+  },
+  "modules": [
+    {
+      "type": "host",
+      "key": "╭─󰌢{#93}",
+      "format": "{version} {#2}{name}",
+      "keyColor": "green"
+    },
+    {
+      "type": "cpu",
+      "key": "├─󰻠{#93}",
+      "temp": true,
+      "format": "{name} {#2}({cores-logical}) @ {freq-max}",
+      "keyColor": "green"
+    },
+    {
+      "type": "gpu",
+      "key": "├─󰍛",
+      "format": "{name} {#2}{?frequency}@ {frequency}{?} {#2}[{type}]",
+      "keyColor": "green"
+    },
+    {
+      "type": "disk",
+      "key": "├─",
+      "format": "{size-used} / {size-total} ({size-percentage}) {#2}- [{filesystem}]",
+      "keyColor": "green"
+    },
+    {
+      "type": "memory",
+      "key": "├─󰑭",
+      "keyColor": "green"
+    },
+    {
+      "type": "swap",
+      "key": "├─󰓡",
+      "keyColor": "green"
+    },
+    {
+      "type": "display",
+      "key": "╰─󰍹",
+      "format": "{width}x{height} @ {scale-factor}x {inch}\" {refresh-rate} HZ {#2}[{type}]",
+      "keyColor": "green"
+    },
+    "break",
+    {
+      "type": "shell",
+      "key": "╭─",
+      "format": "{pretty-name} {#2}{version}",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "terminal",
+      "key": "├─",
+      "format": "{process-name} {#2}{version}",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "terminalfont",
+      "key": "├─",
+      "format": "{name} {#2}{size}pt",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "lm",
+      "key": "├─󰧨",
+      "format": "{service} {#2}{version} ({type})",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "de",
+      "key": "├─",
+      "format": "{pretty-name} {#2}{version}",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "wm",
+      "key": "├─",
+      "format": "{pretty-name} {#2}{version} ({protocol-name})",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "icons",
+      "key": "╰─󰀻",
+      "keyColor": "yellow"
+    },
+    "break",
+    {
+      "type": "title",
+      "key": "╭─",
+      "format": "{user-name}@{host-name}",
+      "keyColor": "blue"
+    },
+    {
+      "type": "os",
+      "key": "├─{icon}", // Just get your distro's logo off nerdfonts.com
+      "format": "{pretty-name} {#2}{arch}",
+      "keyColor": "blue"
+    },
+    {
+      "type": "kernel",
+      "key": "├─",
+      "format": "{sysname} {#2}{release}",
+      "keyColor": "blue"
+    },
+    {
+      "type": "packages",
+      "key": "├─󰏖",
+      "keyColor": "blue"
+    },
+    {
+      "type": "uptime",
+      "key": "├─󰅐",
+      "keyColor": "blue"
+    },
+    {
+      "type": "localip",
+      "key": "├─󰩟",
+      "compact": true,
+      "keyColor": "blue"
+    },
+    {
+      "type": "publicip",
+      "key": "├─󰩠",
+      "keyColor": "blue",
+      "timeout": 1000
+    },
+    {
+      "type": "locale",
+      "key": "╰─",
+      "keyColor": "blue"
+    }
+  ]
+}
