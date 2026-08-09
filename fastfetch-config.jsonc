@@ -102,7 +102,7 @@
     {
       "type": "os",
       "key": "├─{icon}", // Just get your distro's logo off nerdfonts.com
-      "format": "{pretty-name} {#2}{arch}",
+      "format": "{name} {#2}{version} {arch}",
       "keyColor": "blue"
     },
     {
