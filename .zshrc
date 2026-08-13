@@ -1,29 +1,19 @@
-# Created by newuser for 5.9
+# .zshrc
 
 # 环境配置
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.spicetify:$PATH"
 
-# 中文语言CLI
+# 中英文环境配置
+export LANG=en_US.UTF-8
 export LC_MESSAGES=zh_CN.UTF-8
 
-# spotify的插件spetify
-export PATH=$PATH:/home/bbinn/.spicetify
-
-# zsh历史记录配置
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-
-setopt APPEND_HISTORY
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_DUPS
-
-# 输入法环境变量
+# 输入法配置
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
-# nvm延迟加载
+# nvm 延迟加载
 export NVM_DIR="$HOME/.nvm"
+
 nvm() {
     unset -f nvm
 
@@ -32,53 +22,76 @@ nvm() {
     nvm "$@"
 }
 
+# 历史记录
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_FIND_NO_DUPS
+
+# shell 行为
+setopt AUTO_CD
+setopt NUMERIC_GLOB_SORT
+
 # 补全
 autoload -Uz compinit
+compinit -C
 
-# 补全使用缓存，避免每次重新扫描
-if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
-    compinit
-else
-    compinit -C
-fi
-
-# 终端插件 补全高亮提示
-# plugins
+# zsh 插件
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/fzf-tab/fzf-tab.plugin.zsh
 source /usr/share/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# 终端翻译快捷命令
-alias tzh='~/.local/bin/ttrans zh'
-alias ten='~/.local/bin/ttrans en'
+# 工具初始化
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 
-# --help 连通deepseek翻译 | TT 这种形式
+# fzf 配置
+export FZF_DEFAULT_OPTS="
+--height 40%
+--layout=reverse
+--border
+"
+
+# 快捷命令
+alias tzh="$HOME/.local/bin/ttrans zh"
+alias ten="$HOME/.local/bin/ttrans en"
+
 alias TT='hlp trans'
 alias EE='hlp expl'
 
-# alias别名
+
+# 常用 alias
 alias nv='nvim'
+
+alias ff='fzf \
+--height 60% \
+--layout=reverse \
+--border \
+--preview "bat --style=numbers --color=always {}" \
+--preview-window=right:65%:wrap:border-left'
+
 alias ls='eza'
 alias ll='eza -lah'
 alias la='eza -a'
 alias lt='eza --tree --level=2'
 alias tree='eza --tree --level=2'
+
 alias cat='bat'
+alias diff='colordiff'
+
 alias df='df -h'
 alias du='du -h'
 alias free='free -h'
 alias grep='grep --color=auto'
-alias fzf='fzf --height 40% --layout=reverse --border'  # 模糊查找
-alias fzf-vim='fzf --height 60% --layout=reverse --border --preview "bat --style=numbers --color=always {}"'  # 模糊查找
 
-# Starship个性化
-eval "$(starship init zsh)"
-
-# zoxide快速跳转
-eval "$(zoxide init zsh)"
-
-# fastfetch
-if [[ -o interactive ]]; then
-   fastfetch
+# 启动显示
+if [[ -o interactive ]] && command -v fastfetch >/dev/null; then
+    fastfetch
 fi
